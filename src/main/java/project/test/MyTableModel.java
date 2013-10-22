@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package project.test;
 
 import project.entity.impl.Credit;
@@ -37,7 +33,6 @@ public class MyTableModel extends AbstractTableModel {
         return creditList.size();
     }
 
-    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Credit credit = creditList.get(rowIndex);
@@ -55,19 +50,18 @@ public class MyTableModel extends AbstractTableModel {
             case 5:
                 return new SimpleDateFormat("dd-MM-yyyy").format(credit.getDateStart());
             case 6:
-                if(credit.getDateEnd() != null){
-                return new SimpleDateFormat("dd-MM-yyyy").format(credit.getDateEnd());
-                }else {
-                  return credit.getDateEnd();
+                if (credit.getDateEnd() != null) {
+                    return new SimpleDateFormat("dd-MM-yyyy").format(credit.getDateEnd());
+                } else {
+                    return credit.getDateEnd();
                 }
             case 7:
-                if(credit.getIsDelay().equals(true)){
-                  return "есть";
-                }
-                else if(credit.getIsDelay().equals(false)) {
+                if (credit.getIsDelay().equals(true)) {
+                    return "есть";
+                } else if (credit.getIsDelay().equals(false)) {
                     return "нет";
                 }
-                
+
             default:
                 return null;
         }
