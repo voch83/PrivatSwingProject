@@ -18,10 +18,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-/**
- *
- * @author voch
- */
+
 public class AddCredit_frame extends javax.swing.JFrame {
 
     private Connection conn = null;
