@@ -5,10 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author voch
- */
 public class MyTableModel extends AbstractTableModel {
 
     private List<Credit> creditList;
