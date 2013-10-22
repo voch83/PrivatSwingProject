@@ -8,10 +8,6 @@ import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Вова
- */
 public class MyInputVerifier extends InputVerifier {
 
     @Override
