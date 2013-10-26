@@ -3,7 +3,7 @@ package project.entity.impl;
 import project.entity.Entity;
 
 public class Bank implements Entity {
-	
+	//New comment
 	private Integer id;
 	private String name;
 	
