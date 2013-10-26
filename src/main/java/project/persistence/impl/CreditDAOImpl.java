@@ -131,6 +131,7 @@ public class CreditDAOImpl implements CreditDAO {
 			pr.setInt(3, credit.getClient().getId());
 			pr.setDouble(4, credit.getCreditAmount());
 			pr.setDouble(5, credit.getUnpaidAmount());
+                        System.out.println(credit.getDateStart().toString());
 			pr.setDate(6, new java.sql.Date(credit.getDateStart().getTime()));
 			date =  credit.getDateEnd();
                         if(date != null){

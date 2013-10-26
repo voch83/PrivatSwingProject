@@ -31,13 +31,12 @@ public class AddCredit_frame extends javax.swing.JFrame {
 
     public AddCredit_frame(TestProject testProject) throws SQLException, ClassNotFoundException {
         initComponents();
-        AddCredit_frame.testProject=testProject;
+        AddCredit_frame.testProject = testProject;
         conn = TestProject.getConn();
         setItemsToComboBoxCurrency();
         setItemsToCombobBoxBank();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -99,6 +98,18 @@ public class AddCredit_frame extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser1PropertyChange(evt);
+            }
+        });
+
+        jDateChooser2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser2PropertyChange(evt);
             }
         });
 
@@ -179,14 +190,14 @@ public class AddCredit_frame extends javax.swing.JFrame {
             Currency currency = new CurrencyDAOImpl(conn).findByName(jComboBox2.getSelectedItem().toString());
             Bank bank = new BankDAOImpl(conn).findByName(jComboBox1.getSelectedItem().toString());
             client = TestProject.getClient();
-            if(jTextField3.getText().equals("") || jTextField6.getText().equals("") || jDateChooser1.getDate() == null){
-              JOptionPane.showMessageDialog(null, "Введите недостающие данные!");
-            }else {
-            setValuesToNewCredit(bank, currency);
-            cdaoi.insert(credit);
-            JOptionPane.showMessageDialog(null, "Кредит добавлен!");
-            testProject.Update_Table_Credit();
-            close();
+            if (jTextField3.getText().equals("") || jTextField6.getText().equals("") || jDateChooser1.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Введите недостающие данные!");
+            } else {
+                setValuesToNewCredit(bank, currency);
+                cdaoi.insert(credit);
+                JOptionPane.showMessageDialog(null, "Кредит добавлен!");
+                testProject.Update_Table_Credit();
+                close();
             }
         } catch (NumberFormatException | HeadlessException | SQLException ex) {
             Logger.getLogger(AddCredit_frame.class.getName()).log(Level.SEVERE, null, ex);
@@ -229,7 +240,7 @@ public class AddCredit_frame extends javax.swing.JFrame {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         if ("есть".equals(jComboBox3.getSelectedItem().toString())) {
             isDelay = true;
-        }else {
+        } else {
             isDelay = false;
         }
     }//GEN-LAST:event_jComboBox3ActionPerformed
@@ -289,7 +300,7 @@ public class AddCredit_frame extends javax.swing.JFrame {
         WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
-    
+
     private void setItemsToCombobBoxBank() {
         BankDAOImpl bankDAOImpl = new BankDAOImpl(conn);
         ArrayList<Bank> listBank = (ArrayList<Bank>) bankDAOImpl.findAll();
