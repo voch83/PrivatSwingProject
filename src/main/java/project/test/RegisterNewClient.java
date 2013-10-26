@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
@@ -258,7 +259,7 @@ public class RegisterNewClient extends javax.swing.JFrame {
                 baos.write(buf, 0, s);
             }
             person_image = baos.toByteArray();
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
 
