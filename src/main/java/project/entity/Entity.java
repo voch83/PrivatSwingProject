@@ -1,7 +1,7 @@
 package project.entity;
 
 public interface Entity {
-//Comment
+//Comment is here
 	Integer getId();
 	
 	void setId(Integer id);
